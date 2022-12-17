@@ -1,10 +1,33 @@
 const mongoose = require('mongoose')
+const chalk = require('chalk')
 
+const connectionURL = "mongodb://127.0.0.1:27017/taskmanager"
 
-const connectDB = (url) => {    
-    return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true})
+mongoose.connect(connectionURL, {
+    useNewURLParser: true, useUnifiedTopology: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true
+}, (error, connect) => {
+    if(error){
+        console.log(chalk.redBright(`Could not connect to the database`))
+    }
+    // else {
+        console.log(chalk.bgMagenta.white(`Successfully Connected to the database`))
+    // }
+})
 
-}
+connectDB = mongoose.connection
 
-module.exports =connectDB
+// const connectDB = (url) => {    
+//     return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true},
+//         (error, connect) => {
+//         if(error){
+//         console.log(chalk.redBright(`Could not connect to the database`))
+//         }
+//         else {
+//         console.log(chalk.bgMagenta.white(`Successfully Connected to the database`))
+//         }
+//     })
+
+// }
+
+// module.exports = connectDB;
     

@@ -6,6 +6,8 @@ require('dotenv').config();
 const notFound = require('./middleware/not-found');
 const errorHandler = require('./middleware/error-handler');
 const path = require('path');
+const chalk = require('chalk')
+
 
 // Middleware
 app.use(express.json());
@@ -36,22 +38,22 @@ app.use(errorHandler);
     Therefore, if there is no network, it won't connect.
 */
 const port = process.env.PORT;
-const start = async () => {
-    try {
-        await connectDB(process.env.MONGO_CONNECT)
-        app.listen (port, () => {
-        console.log("Server is listening on Port " + port);
-        })
-    } catch (error) {
-        console.log(error)
-    }
-}
+// const start = async () => {
+//     try {
+//         await connectDB(process.env.DB)
+//         app.listen (port, () => {
+//             console.log(chalk.green("Server is listening on Port " + port));
+//         })
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
-start();
+// start();
 
 
 // server port
 
-// app.listen (port, () => {
-//     console.log("Server is listening on Port " + port);
-// })
+app.listen (port, () => {
+    console.log(chalk.green("Server is listening on Port " + port));
+})
