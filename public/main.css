@@ -49,7 +49,8 @@
   --bodyFont: 'Montserrat', sans-serif;
   --smallText: 0.7em;
   /* rest */
-  --backgroundColor: var(--grey-50);
+  /* --backgroundColor: var(--grey-50); */
+  --backgroundColor: var(--primary-300);
   --textColor: var(--grey-1000);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
@@ -129,6 +130,30 @@ ul {
 a {
   text-decoration: none;
 }
+
+.header {
+  background-color: #4640B3;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  color: #ffffff;
+}
+.header h2{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer {
+  background-color: #000000;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  text-align: center;
+  color: #ffffff;
+}
+.footer p {
+  align-self: center;
+}
+
+
 /*************
      Buttons 
 *************/
@@ -137,7 +162,8 @@ a {
   cursor: pointer;
   appearance: none;
   color: var(--white);
-  background: var(--primary-500);
+  /* background: var(--primary-500); */
+  background: #10b641;
   border: none;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
@@ -149,7 +175,8 @@ a {
 
 .btn:hover {
   color: var(--white);
-  background: var(--primary-700);
+  /* background: var(--primary-700); */
+  background-color: #109136;
   box-shadow: var(--shadow-2);
 }
 button.small {
