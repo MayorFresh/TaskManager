@@ -11,49 +11,28 @@ const chalk = require('chalk')
 
 // Middleware
 app.use(express.json());
-// Serving static files
 
+// Serving the frontend static files
 const pathToSource = path.join(__dirname, "public")
 app.use(express.static(pathToSource));
 
 
 
-// routes
+// landing page
 app.get('/', (req, res) => {
-    // res.send("Landing Page for Task Manager App");
     res.sendFile(pathToSource + "/index.html")
 })
 
 
 app.use('/api/v1/tasks', tasks);
+
 // Error handler for invalid route
 app.use(notFound); 
 app.use(errorHandler);
 
 
-
-/* Setting up the server in such a way that
-    it connects to the database first before launching
-    the server.
-    Therefore, if there is no network, it won't connect.
-*/
-const port = process.env.PORT;
-// const start = async () => {
-//     try {
-//         await connectDB(process.env.DB)
-//         app.listen (port, () => {
-//             console.log(chalk.green("Server is listening on Port " + port));
-//         })
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
-// start();
-
-
 // server port
-
+const port = process.env.PORT;
 app.listen (port, () => {
     console.log(chalk.green("Server is listening on Port " + port));
 })

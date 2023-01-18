@@ -9,25 +9,10 @@ mongoose.connect(connectionURL, {
     if(error){
         console.log(chalk.redBright(`Could not connect to the database`))
     }
-    // else {
-        console.log(chalk.bgMagenta.white(`Successfully Connected to the database`))
-    // }
+   
+    console.log(chalk.bgMagenta.white(`Successfully Connected to the database`))
+   
 })
 
 connectDB = mongoose.connection
-
-// const connectDB = (url) => {    
-//     return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true},
-//         (error, connect) => {
-//         if(error){
-//         console.log(chalk.redBright(`Could not connect to the database`))
-//         }
-//         else {
-//         console.log(chalk.bgMagenta.white(`Successfully Connected to the database`))
-//         }
-//     })
-
-// }
-
-// module.exports = connectDB;
     

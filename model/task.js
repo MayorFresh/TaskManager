@@ -15,8 +15,4 @@ const TaskSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 
-
-/* Task below is what is used to access the Task Schema model
-from the controller 
-*/
 module.exports = mongoose.model('Task', TaskSchema)
