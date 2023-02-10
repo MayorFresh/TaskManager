@@ -11,8 +11,14 @@ const getAllTasks = asyncWrapper( async (req, res) => {
 
 // Creating a new task route
 const createTask = asyncWrapper( async (req, res) => {
-    const task = await Task.create(req.body)
-    res.status(201).json({task}); 
+    try {
+        const task = await Task.create(req.body)
+        res.status(201).json({task}); 
+        console.log("task created")
+       }
+       catch (e) {
+        console.log(e)
+    }; 
 })
 
 // getting a single task route

@@ -1,12 +1,21 @@
 const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
-const connectDB = require('./db/database');
+require('./db/database');
 require('dotenv').config();
 const notFound = require('./middleware/not-found');
 const errorHandler = require('./middleware/error-handler');
 const path = require('path');
 const chalk = require('chalk')
+
+const swaggerUI = require('swagger-ui-express')
+const swaggerjsDoc = require('swagger-jsdoc')
+const swaggerOption =  require('./swagger')
+const jsDoc = swaggerjsDoc(swaggerOption)
+
+app.use('/swagger', swaggerUI.serve, swaggerUI.setup(jsDoc))
+
+
 
 
 // Middleware
